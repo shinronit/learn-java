@@ -10,7 +10,7 @@ public class Tutorial9 {
         // increment operators
         // pre incrementing adding ++ sign before a variable.
         // post incrementing adding ++ sign after a variable.
-        System.out.println(tuna++);
+        tuna += 9;
         System.out.println(tuna);
 
     }
