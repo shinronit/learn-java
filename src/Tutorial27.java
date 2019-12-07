@@ -8,9 +8,11 @@ public class Tutorial27 {
            // nab[1]=543;
            // nab[9]=65;
 
-        int nab[]={2,3,4,5,6};
+        int nab[]={2,3,5548,5,6};
 
             System.out.println(nab[2]);
 
+            nab[2]=89;
+            System.out.println(nab[2]);
     }
 }
