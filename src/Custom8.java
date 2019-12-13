@@ -9,6 +9,6 @@ public class Custom8 {
         System.out.println("Apple   =   " + apple);
         System.out.println("Berry   =   " + berry);
         System.out.println("banana  =   " + banana);
-        System.out.println("Total = " + total);
+        System.out.println("Total   =   " + total);
     }
 }
