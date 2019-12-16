@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class Custom11 {
     public static void main(String[] args){
@@ -9,19 +8,19 @@ public class Custom11 {
         Scanner name = new Scanner(System.in);
 
         System.out.println("Hi " + name.next( ) + " you are stuck in an old military base choose between two doors  ");
-        System.out.print("door1 , door2 type down in small cases");
+        System.out.print("Choose 1st door or 2nd door");
         System.out.println("");
         System.out.println("");
 
         Scanner inputplayer = new Scanner(System.in);
         String stage1 = inputplayer.nextLine( );
-        if ( stage1.equals("door1") ) {
+        if ( stage1.equals("1") ) {
             System.out.println("You successfully came out of the basement");
             System.out.println("Oh no! guards saw me");
             System.out.println("Option 1 : Run away as fast as possible");
             System.out.println("Option 2 : Shout Help! and tell the guards you are stuck");
             System.out.println("Use 1 for option 1 and 2 for option 2 ");
-        } else if ( stage1.equals("door2") ) {
+        } else if ( stage1.equals("2") ) {
             System.out.println("You were killed by armed soldiers ");
             System.out.println("You Died");
             System.exit(1);
@@ -31,7 +30,7 @@ public class Custom11 {
         }
 
         Scanner inputplayer2 = new Scanner(System.in);
-        String stage2 = inputplayer.nextLine( );
+        String stage2 = inputplayer2.nextLine( );
         if ( stage2.equals("1") ) {
             System.out.println("Soliders thought you are a criminal and shooted you ");
             System.out.println("You died");
@@ -47,8 +46,9 @@ public class Custom11 {
             System.out.println("You have to choose between two option");
             System.exit(1);
         }
+
         Scanner inputplayer3 = new Scanner(System.in);
-        String stage3 = inputplayer.nextLine( );
+        String stage3 = inputplayer3.nextLine( );
         if ( stage3.equals("1") ) {
             System.out.println("You were killed by Chinese terrorists");
             System.out.println("YOU DIED");
@@ -64,8 +64,9 @@ public class Custom11 {
             System.out.println("You have to choose between two option");
             System.exit(1);
         }
+
         Scanner inputplayer4 = new Scanner(System.in);
-        String stage4 = inputplayer.nextLine( );
+        String stage4 = inputplayer4.nextLine( );
         if ( stage4.equals("1") ) {
             System.out.println("You were shooted by Chinese army");
             System.out.println("YOUR PLANE GOT CRASHED AND YOU ARE DEAD");
@@ -79,8 +80,9 @@ public class Custom11 {
             System.out.println("You have to choose between two option");
             System.exit(1);
         }
+
         Scanner inputplayer5 = new Scanner(System.in);
-        String stage5 = inputplayer.nextLine( );
+        String stage5 = inputplayer5.nextLine( );
         if ( stage5.equals("1") ) {
             System.out.println("OK Pilot we are sending some backups for your plane landing.");
             System.out.println("You : Ok Thank you.");
@@ -100,8 +102,9 @@ public class Custom11 {
             System.out.println("You have to choose between two option");
             System.exit(1);
         }
+
         Scanner inputplayer6 = new Scanner(System.in);
-        String stage6 = inputplayer.nextLine( );
+        String stage6 = inputplayer6.nextLine( );
         if ( stage6.equals("1") ) {
             System.out.println("Plane got exploded");
             System.out.println("YOU ARE DEAD");
@@ -112,11 +115,9 @@ public class Custom11 {
             System.out.println("You : Thank you so much");
             System.out.println("");
             System.out.println("Congrats player for completing the game");
-
         } else {
             System.out.println("You have to choose between two option");
             System.exit(1);
         }
-
     }
 }
