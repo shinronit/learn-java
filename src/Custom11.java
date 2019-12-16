@@ -96,25 +96,26 @@ public class Custom11 {
             System.out.println("Option 1 : Go out and thank them : ");
             System.out.println("Option 2 : Turn off the engine first because plane was attacked earlier by rockets when i was at the army base. ");
         } else if ( stage5.equals("2") ) {
-            System.out.println("Yourr plane got crashed because you never landed a plane ");
-            System.out.println("YOU DIED IN PLANE EXPLOSION");
+            System.out.println("Your plane got crashed because you never landed a plane. ");
+            System.out.println("YOU DIED IN PLANE EXPLOSION....");
         } else {
-            System.out.println("You have to choose between two option");
+            System.out.println("You have to choose between two option..");
             System.exit(1);
         }
 
         Scanner inputplayer6 = new Scanner(System.in);
         String stage6 = inputplayer6.nextLine( );
         if ( stage6.equals("1") ) {
-            System.out.println("Plane got exploded");
-            System.out.println("YOU ARE DEAD");
+            System.out.println("Plane got exploded....");
+            System.out.println("YOU ARE DEAD....");
             System.exit(1);
         } else if ( stage6.equals("2") ) {
-            System.out.println("I turned the engine off and now going to meet the controller");
-            System.out.println("Controller : Congrats for your safe landing");
-            System.out.println("You : Thank you so much");
+            System.out.println("I turned the engine off and now going to meet the controller.");
+            System.out.println("Controller : Congrats for your safe landing.");
+            System.out.println("You : Thank you so much.");
             System.out.println("");
-            System.out.println("Congrats player for completing the game");
+            System.out.println("Congrats player for completing the game!");
+            System.out.println("\uD83D\uDE38\uD83D\uDE38\uD83D\uDE38\uD83D\uDE38\uD83D\uDE38\uD83D\uDE38\uD83D\uDE38");
         } else {
             System.out.println("You have to choose between two option");
             System.exit(1);
