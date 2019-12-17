@@ -20,14 +20,14 @@ public class Custom12 {
         int appleRandomInteger = random.nextInt(300);
         if (appleRandomInteger > 200) {
             System.out.println("Apples are selled here for " + appleRandomInteger + " Rs kg");
-        }else {
+        } else {
             System.out.println("Apples are not in stock ");
         }
 
         int grapeRandomInteger = random.nextInt(400);
         if (grapeRandomInteger > 300) {
             System.out.println("Grapes are selled here for " + grapeRandomInteger + " Rs kg");
-        }else {
+        } else {
             System.out.println("Grapes are not in stock");
         }
 
@@ -37,22 +37,22 @@ public class Custom12 {
         if (buy.equals("mango") & randomInteger < 100) {
             System.out.println("Not in stock ");
             System.exit(1);
-        }else if (buy.equals("mango")) {
-            System.out.println("Please pay Rs " + randomInteger+ ".00");
+        } else if (buy.equals("mango")) {
+            System.out.println("Please pay Rs " + randomInteger + ".00");
             System.exit(1);
-        }else if (buy.equals("apple") & appleRandomInteger < 100) {
+        } else if (buy.equals("apple") & appleRandomInteger < 100) {
             System.out.println("Not in stock ");
             System.exit(1);
-        }else if (buy.equals("apple")) {
-            System.out.println("Please pay Rs " + appleRandomInteger+ ".00");
+        } else if (buy.equals("apple")) {
+            System.out.println("Please pay Rs " + appleRandomInteger + ".00");
             System.exit(1);
-        }else if (buy.equals("grape") & grapeRandomInteger < 100) {
+        } else if (buy.equals("grape") & grapeRandomInteger < 100) {
             System.out.println("Not in stock ");
             System.exit(1);
-        }else if (buy.equals("grape")) {
-            System.out.println("Please pay Rs " + grapeRandomInteger+ ".00");
+        } else if (buy.equals("grape")) {
+            System.out.println("Please pay Rs " + grapeRandomInteger + ".00");
             System.exit(1);
-        }else {
+        } else {
             System.out.println("You have to write apple or mango or grape for output");
         }
     }
