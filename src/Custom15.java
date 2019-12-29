@@ -5,13 +5,12 @@ public class Custom15 {
     public static void main(String[] args) {
         Scanner consoleInput = new Scanner(System.in);
         Scanner name = new Scanner(System.in);
-        Random discount = new Random();
         Random price = new Random();
 
+        System.out.println("IN CAPITAL CASES ONLY.");
         System.out.println("Please write your name so we can generate bill.");
 
         int amount = price.nextInt(500);
-        int less = 10 + discount.nextInt(40);
         System.out.println(name.next()+" your total amount is " + amount + " Rs do you want to use any coupons?");
         System.out.println("SHIN10 ");
         System.out.println("SHIN20");
