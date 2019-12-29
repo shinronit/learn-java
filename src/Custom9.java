@@ -9,10 +9,10 @@ public class Custom9 {
         int maths = 80;
         int science = 70;
         int english = 98;
-        int hindi = 37;
+        int hindi = 5;
         int total = maths + science + english + hindi;
         int pass = 200;
-        double percentage = pass % total;
+        //double percentage = pass % total;
 
         System.out.println ( );
         if ( maths > 40 || science > 40 || english > 40 || hindi > 40 ) {
@@ -32,7 +32,7 @@ public class Custom9 {
         System.out.println ( maths + science + english + hindi );
         System.out.print ( "Marks Lost = " );
         System.out.println ( marks - total );
-        System.out.println ( "Percentage = " + percentage );
+        System.out.println ( "Percentage = Error cannot calculate it");
 
         if ( pass < total ) {
             System.out.println ( "Passed \uD83E\uDD11 \uD83E\uDD11  " );
