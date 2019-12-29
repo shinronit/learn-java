@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Custom12 {
+
     public static void main(String[] args) {
 
         Random random = new Random();
@@ -10,50 +11,31 @@ public class Custom12 {
         System.out.println("If you want a price list for fruits type down anything");
         System.out.println(start.nextLine());
 
-        int randomInteger = random.nextInt(200);
-        if (randomInteger > 100)
-            System.out.println("Mangoes are selled here for " + randomInteger + " Rs kg");
-        else {
-            System.out.println("Mangoes are not in stock ");
-        }
+        int mangoPrice = printFruitMenuAndGetPrice(100, "Mangoes", random);
+        int applePrice = printFruitMenuAndGetPrice(200, "Apples", random);
+        int grapePrice = printFruitMenuAndGetPrice(300, "Grapes", random);
 
-        int appleRandomInteger = random.nextInt(300);
-        if (appleRandomInteger > 200) {
-            System.out.println("Apples are selled here for " + appleRandomInteger + " Rs kg");
-        } else {
-            System.out.println("Apples are not in stock ");
-        }
-
-        int grapeRandomInteger = random.nextInt(400);
-        if (grapeRandomInteger > 300) {
-            System.out.println("Grapes are selled here for " + grapeRandomInteger + " Rs kg");
-        } else {
-            System.out.println("Grapes are not in stock");
-        }
-
-        System.out.println("What do you want to buy");
+        System.out.println("What do you want to buy?");
         Scanner purchase = new Scanner(System.in);
-        String buy = purchase.nextLine();
-        if (buy.equals("mango") & randomInteger < 100) {
-            System.out.println("Not in stock ");
-            System.exit(1);
-        } else if (buy.equals("mango")) {
-            System.out.println("Please pay Rs " + randomInteger + ".00");
-            System.exit(1);
-        } else if (buy.equals("apple") & appleRandomInteger < 100) {
-            System.out.println("Not in stock ");
-            System.exit(1);
-        } else if (buy.equals("apple")) {
-            System.out.println("Please pay Rs " + appleRandomInteger + ".00");
-            System.exit(1);
-        } else if (buy.equals("grape") & grapeRandomInteger < 100) {
-            System.out.println("Not in stock ");
-            System.exit(1);
-        } else if (buy.equals("grape")) {
-            System.out.println("Please pay Rs " + grapeRandomInteger + ".00");
-            System.exit(1);
+        String fruitNameToBeBought = purchase.nextLine();
+        if (fruitNameToBeBought.equals("mango")) {
+            System.out.println("Please pay Rs " + mangoPrice + ".00");
+        } else if (fruitNameToBeBought.equals("apple")) {
+            System.out.println("Please pay Rs " + applePrice + ".00");
+        } else if (fruitNameToBeBought.equals("grape")) {
+            System.out.println("Please pay Rs " + grapePrice + ".00");
         } else {
             System.out.println("You have to write apple or mango or grape for output");
         }
+    }
+
+    public static int printFruitMenuAndGetPrice(int basePrice, String fruitName, Random random) {
+        int randomInteger = basePrice + random.nextInt(100);
+        if (randomInteger > basePrice)
+            System.out.println(fruitName + " are sold here for " + randomInteger + " Rs kg");
+        else {
+            System.out.println(fruitName + " are not in stock ");
+        }
+        return randomInteger;
     }
 }
