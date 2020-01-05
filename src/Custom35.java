@@ -49,6 +49,7 @@ public class Custom35 {
             }else {
                 System.out.println("You were suppsoed to choose between inputs.");
             }
+
             System.out.println(score + " Is your score.");
         }
     }
