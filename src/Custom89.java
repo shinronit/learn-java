@@ -5,11 +5,13 @@ import java.util.Scanner;
 
 public class Custom89 {
     public static void main (String [] args)throws NoSuchAlgorithmException{
+
         Custom89read g = new Custom89read();
+        g.adminPassword();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Email");
         String input = scanner.nextLine();
-        if (input.equals("CoBossAdmin@ShinHotel.com")) {
+        if (input.equalsIgnoreCase("CoBossAdmin@ShinHotel.com")) {
             System.out.println("Enter Password");
             String password = scanner.nextLine();
             String cuc = getMd5(password);
@@ -25,6 +27,8 @@ public class Custom89 {
             System.out.println("Wrong email");
         }
     }
+
+
 
     public static String getMd5(String input)
     {
@@ -54,3 +58,4 @@ public class Custom89 {
         }
     }
 }
+
