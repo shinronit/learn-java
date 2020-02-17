@@ -7,19 +7,22 @@ public class Custom95{
         System.out.println("Enter what to do + ,-,*,/ ");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
+        for(int l = 0; l<1;)
         if (input.equals("+")){
+            l=2;
             c.add();
         }else if (input.equals("-")){
+            l=2;
             c.substract();
         }else if (input.equals("*")){
+            l=2;
             c.multiply();
         } else if (input.equals("/")){
+            l=2;
             c.divide();
-        }else if(input.equals("reset")){
-
-        }
-        else{
+        }else{
             System.out.println("Cannot recognize symbol please use +,-,*,/");
+            input = scanner.nextLine();
         }
     }
     public void add(){
@@ -27,6 +30,9 @@ public class Custom95{
             System.out.println("Enter Number 1");
             Scanner scanner = new Scanner(System.in);
             String num1 = scanner.nextLine();
+            if (num1.equals("quit")){
+                System.exit(0);
+            }
             int a = Integer.parseInt(num1);
             System.out.println("Enter Number 2");
             String num2 = scanner.nextLine();
@@ -42,6 +48,9 @@ public class Custom95{
             System.out.println("Enter Number 1");
             Scanner scanner = new Scanner(System.in);
             String num1 = scanner.nextLine();
+            if (num1.equals("quit")){
+                System.exit(0);
+            }
             int a = Integer.parseInt(num1);
             System.out.println("Enter Number 2");
             String num2 = scanner.nextLine();
@@ -57,6 +66,9 @@ public class Custom95{
             System.out.println("Enter Number 1");
             Scanner scanner = new Scanner(System.in);
             String num1 = scanner.nextLine();
+            if (num1.equals("quit")){
+                System.exit(0);
+            }
             int a = Integer.parseInt(num1);
             System.out.println("Enter Number 2");
             String num2 = scanner.nextLine();
@@ -72,6 +84,9 @@ public class Custom95{
             System.out.println("Enter Number 1");
             Scanner scanner = new Scanner(System.in);
             String num1 = scanner.nextLine();
+            if (num1.equals("quit")){
+                System.exit(0);
+            }
             int a = Integer.parseInt(num1);
             System.out.println("Enter Number 2");
             String num2 = scanner.nextLine();
