@@ -1,3 +1,5 @@
+package ciAccountFiles;
+
 import java.io.*;
 
 public class CJDataState implements Serializable {
@@ -12,6 +14,7 @@ public class CJDataState implements Serializable {
     private static final String MOVIES_DOWNLOADS_LEFT = "Requires 200 coins for 1 use";
     private static final String BOOKS_DOWNLOADS_LEFT = "Requires 120 coins for 1 use";
     private static final String APPS_DOWNLOADS_LEFT = "Requires 120 coins for 1 use";
+    private static final String SPINS_DESCRIPTION = "Get upto 1000 coins use spin command to access spins.";
 
     int totalCoins;
     int maggiCard;
@@ -22,6 +25,15 @@ public class CJDataState implements Serializable {
     int movieDownload;
     int bookDownload;
     int appDownload;
+    int spins;
+
+    public int getSpins(){
+        return spins;
+    }
+
+    public void setSpins(int spins){
+        this.spins = spins;
+    }
 
     public int getTeaCard(){
         return teaCard;
@@ -144,5 +156,6 @@ public class CJDataState implements Serializable {
         System.out.format("%-32s%-30d%-40s\n", "MoviesCard: ", this.movieDownload,MOVIES_DOWNLOADS_LEFT);
         System.out.format("%-32s%-30d%-40s\n", "Games/AppsCards: ", this.appDownload,APPS_DOWNLOADS_LEFT);
         System.out.format("%-32s%-30d%-40s\n", "Books Card: ", this.bookDownload,BOOKS_DOWNLOADS_LEFT);
+        System.out.format("%-32s%-30d%-40s\n", "Spins Left: ", this.spins,SPINS_DESCRIPTION);
     }
 }

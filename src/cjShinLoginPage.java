@@ -1,3 +1,7 @@
+package ciAccountFiles;
+
+import ciAccountFiles.cjAccountOpenMain;
+
 import java.util.Scanner;
 
 public class cjShinLoginPage {

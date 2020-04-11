@@ -1,3 +1,7 @@
+package ciAccountFiles;
+
+import ciAccountFiles.getMd5;
+
 import java.io.*;
 import java.util.Scanner;
 
