@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -99,6 +101,12 @@ public class cjAccountOpenMain {
             CJDataState.WriteObjectToFile(dataState);
             dataState = CJDataState.readObjectFromFile("cj.txt");
             System.out.println("Rating Rewards updated successfully");
+        }else if(cardName.equalsIgnoreCase("dailyrewards")){
+            int newValue = scanner.nextInt();
+            dataState.setDailyRewards(newValue);
+            CJDataState.WriteObjectToFile(dataState);
+            dataState = CJDataState.readObjectFromFile("cj.txt");
+            System.out.println("Daily Rewards updated successfully");
         }
     }
 
@@ -225,6 +233,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
+                order(scanner,randomOne,use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -236,6 +245,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
+                order(scanner,randomOne,use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -247,6 +257,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
+                order(scanner,randomOne,use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -258,6 +269,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
+                order(scanner,randomOne,use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -269,6 +281,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
+                order(scanner,randomOne,use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -280,6 +293,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
+                order(scanner,randomOne,use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -291,6 +305,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
+                order(scanner,randomOne,use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -302,6 +317,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
+                order(scanner,randomOne,use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -317,10 +333,14 @@ public class cjAccountOpenMain {
                     dataState.setSpins(dataState.getSpins()-1);
                     CJDataState.WriteObjectToFile(dataState);
                     dataState = CJDataState.readObjectFromFile("cj.txt");
+                    System.exit(0);
                 }else {
                     System.out.println("Not enough spins");
                     System.exit(0);
                 }
+            }else {
+                System.out.println("This command is not accepted .");
+                System.exit(0);
             }
         }else if(use.equalsIgnoreCase("ratingrewards") || use.equalsIgnoreCase("10")) {
             System.out.println("Welcome to rating rewards type collect and press enter to claim your reward.");
@@ -338,24 +358,34 @@ public class cjAccountOpenMain {
                     System.out.println("Not enough rating points");
                     System.exit(0);
                 }
+            }else {
+                System.out.println("This command is not accepted .");
+                System.exit(0);
             }
-        }else{
-            System.exit(0);
+        }  else if(use.equalsIgnoreCase("dailyRewards") || use.equalsIgnoreCase("11")) {
+            System.out.println("Welcome to daily rewards type collect and press enter to claim your reward.");
+            int dailyRewards = random.nextInt(10);
+            String claim = scanner.nextLine();
+            if(claim.equalsIgnoreCase("claim")) {
+                if(dataState.getDailyRewards()>0) {
+                    dataState.setTotalCoins(dataState.getTotalCoins()+dailyRewards);
+                    System.out.println("Rewarded coins : "+dailyRewards);
+                    dataState.setDailyRewards(dataState.getDailyRewards()-1);
+                    CJDataState.WriteObjectToFile(dataState);
+                    dataState = CJDataState.readObjectFromFile("cj.txt");
+                    System.exit(0);
+                }else {
+                    System.out.println("Not enough dailyRewards points");
+                    System.exit(0);
+                }
+            }else {
+                System.out.println("This command is not accepted .");
+                System.exit(0);
+            }
         }
-        try {
-            FileWriter myWriter = new FileWriter("orderid.txt",true);
-            System.out.println("Describe it in one line by giving spaces.");
-            System.out.println("Please describe your full order.Like if you order toast describe number of toasts and tea.");
-            System.out.println("Or if u order some room service please instruct what to not do. If there is no please leave this line.");
-            String order = scanner.nextLine();
-            myWriter.write("Description : " + order);
-            myWriter.write("  ");
-            myWriter.write("Your Order ID is " + randomOne + ",You Ordered : " + use);
-            myWriter.close();
 
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+        else{
+            System.exit(0);
         }
     }
 
@@ -387,5 +417,25 @@ public class cjAccountOpenMain {
                 System.out.println("There is no command like : "+input+" Plesae try again.");
             }
         }
-    }
+    public static void order(Scanner scanner , int randomOne,String use){
+        try {
+            FileWriter myWriter = new FileWriter("orderid.txt",true );
+            System.out.println("Describe it in one line by giving spaces.");
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date date = new Date();
+            myWriter.write("Ordered on : " + formatter.format(date) + " . ");
+            System.out.println("Please describe your full order.Like if you order toast describe number of toasts and tea.");
+            System.out.println("Or if u order some room service please instruct what to not do. If there is no please leave this line.");
+            String order = scanner.nextLine();
+            myWriter.write("Description : " + order);
+            myWriter.write("Your Order ID is " + randomOne + ",You Ordered : " + use);
+            String newLine = System.getProperty("line.separator");
+            myWriter.write(newLine);
+            myWriter.close();
 
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
