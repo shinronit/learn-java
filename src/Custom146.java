@@ -1,10 +1,16 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Custom146 {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
         String name = playerName(scanner);
         int i = playerAge(scanner,name);
+        String startGqme = startGame(name,scanner);
+        int score = inGame(scanner,random);
+        System.out.println("YOU SCORED : " + score);
+
     }
     public static String playerName(Scanner scanner){
         System.out.print("Hi There , Enter your Name : ");
@@ -40,8 +46,36 @@ public class Custom146 {
             System.out.println("Great");
         }return i;
     }
-    public static String startGame(String name){
-        System.out.println("Hello " + name + "Do you want to start this game?");
-
+    public static String startGame(String name,Scanner scanner){
+        System.out.println("Hello " + name + "Do you want to start this game?   Y/N ");
+        String input = scanner.nextLine();
+        if(input.equalsIgnoreCase("y")){
+            System.out.println("Great lets get started.");
+        }else if(input.equalsIgnoreCase("n")){
+            System.out.println("Ohk as you wish see you soon.");
+            System.exit(0);
+        }else {
+            System.out.println("Please type y or n .... ( y = yes , n = no )");
+            System.exit(0);
+        }return input;
+    }
+    public static int inGame(Scanner scanner, Random random){
+        int score = 0;
+        for (int i = 0;i<5;i++) {
+            int randm = random.nextInt(10);
+            System.out.println("Choose a number between 0 to 10");
+            String input = scanner.nextLine();
+            int inp = Integer.parseInt(input);
+            if(inp==randm){
+                if(randm<5){
+                    System.out.println("Oh You got it right.");
+                }else {
+                    System.out.println("Nice Your guess was correct.");
+                }
+                score += 100;
+            }else {
+                System.out.println("OOPS,correct answer is " + randm);
+            }
+        }return score;
     }
 }
