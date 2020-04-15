@@ -373,6 +373,7 @@ public class cjAccountOpenMain {
                     dataState.setDailyRewards(dataState.getDailyRewards()-1);
                     CJDataState.WriteObjectToFile(dataState);
                     dataState = CJDataState.readObjectFromFile("cj.txt");
+                    coinsUpdateNoticeAndOtherItems(scanner,randomOne,dailyRewards,use);
                     System.exit(0);
                 }else {
                     System.out.println("Not enough dailyRewards points");
@@ -417,6 +418,7 @@ public class cjAccountOpenMain {
                 System.out.println("There is no command like : "+input+" Plesae try again.");
             }
         }
+        
     public static void order(Scanner scanner , int randomOne,String use){
         try {
             FileWriter myWriter = new FileWriter("orderid.txt",true );
@@ -428,6 +430,23 @@ public class cjAccountOpenMain {
             System.out.println("Or if u order some room service please instruct what to not do. If there is no please leave this line.");
             String order = scanner.nextLine();
             myWriter.write("Description : " + order);
+            myWriter.write("Your Order ID is " + randomOne + ",You Ordered : " + use);
+            String newLine = System.getProperty("line.separator");
+            myWriter.write(newLine);
+            myWriter.close();
+
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+    public static void coinsUpdateNoticeAndOtherItems(Scanner scanner , int randomOne,int random,String use){
+        try {
+            FileWriter myWriter = new FileWriter("orderid.txt",true );
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date date = new Date();
+            myWriter.write("Ordered on : " + formatter.format(date) + " . ");
+            myWriter.write("Awarded coins : " + random);
             myWriter.write("Your Order ID is " + randomOne + ",You Ordered : " + use);
             String newLine = System.getProperty("line.separator");
             myWriter.write(newLine);
