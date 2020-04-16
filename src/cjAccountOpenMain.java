@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -323,16 +324,17 @@ public class cjAccountOpenMain {
                 System.exit(0);
             }
         }else if(use.equalsIgnoreCase("spin") || use.equalsIgnoreCase("9")) {
-            System.out.println("Welcome to daily spin type collect and press enter to claim your reward, Win upto 1000 coins.");
+            System.out.println("Welcome to daily spin press enter to claim your reward, Win upto 1000 coins.");
             int dailySpins = random.nextInt(80);
             String claim = scanner.nextLine();
-            if(claim.equalsIgnoreCase("claim")) {
+            if(claim.equalsIgnoreCase("")) {
                 if(dataState.getSpins()>0) {
                     dataState.setTotalCoins(dataState.getTotalCoins()+dailySpins);
                     System.out.println("Rewarded coins : "+dailySpins);
                     dataState.setSpins(dataState.getSpins()-1);
                     CJDataState.WriteObjectToFile(dataState);
                     dataState = CJDataState.readObjectFromFile("cj.txt");
+                    coinsUpdateNoticeAndOtherItems(scanner,randomOne,dailySpins,use);
                     System.exit(0);
                 }else {
                     System.out.println("Not enough spins");
@@ -343,16 +345,17 @@ public class cjAccountOpenMain {
                 System.exit(0);
             }
         }else if(use.equalsIgnoreCase("ratingrewards") || use.equalsIgnoreCase("10")) {
-            System.out.println("Welcome to rating rewards type collect and press enter to claim your reward.");
+            System.out.println("Welcome to rating rewards press enter to claim your reward.");
             int ratingRewards = random.nextInt(10);
             String claim = scanner.nextLine();
-            if(claim.equalsIgnoreCase("claim")) {
+            if(claim.equalsIgnoreCase("")) {
                 if(dataState.getRatingRewards()>0) {
                     dataState.setTotalCoins(dataState.getTotalCoins()+ratingRewards);
                     System.out.println("Rewarded coins : "+ratingRewards);
                     dataState.setRatingRewards(dataState.getRatingRewards()-1);
                     CJDataState.WriteObjectToFile(dataState);
                     dataState = CJDataState.readObjectFromFile("cj.txt");
+                    coinsUpdateNoticeAndOtherItems(scanner,randomOne,ratingRewards,use);
                     System.exit(0);
                 }else {
                     System.out.println("Not enough rating points");
@@ -363,10 +366,10 @@ public class cjAccountOpenMain {
                 System.exit(0);
             }
         }  else if(use.equalsIgnoreCase("dailyRewards") || use.equalsIgnoreCase("11")) {
-            System.out.println("Welcome to daily rewards type collect and press enter to claim your reward.");
+            System.out.println("Welcome to daily rewards press enter to claim your reward.");
             int dailyRewards = random.nextInt(10);
             String claim = scanner.nextLine();
-            if(claim.equalsIgnoreCase("claim")) {
+            if(claim.equalsIgnoreCase("")) {
                 if(dataState.getDailyRewards()>0) {
                     dataState.setTotalCoins(dataState.getTotalCoins()+dailyRewards);
                     System.out.println("Rewarded coins : "+dailyRewards);
@@ -391,10 +394,9 @@ public class cjAccountOpenMain {
     }
 
     public static void commands(){
-        System.out.println("BASIC COMMANDS : BUY, UPDATE, DELETEACCOUNT, QUIT .");
+        System.out.println("BASIC COMMANDS : BUY, UPDATE, DELETEACCOUNT, ORDER-HISTORY ,QUIT .");
         System.out.println("CARD COMMANDS : MAGGI, TEA, TEATOAST, ROOMCLEAN, WATER, MOVIE, APP, BOOK, SPIN ,RATINGREWARDS.");
-        System.out.println("Please write exact same word with no spaces.");
-        System.out.println("Your word can be capital or small we don't care about that.");
+        System.out.println("Please write word with no spaces.('Example : water or WATER.')");
         System.out.println("Please rerun app.");
         System.exit(0);
     }
@@ -414,6 +416,32 @@ public class cjAccountOpenMain {
                 commands();
             }else if(input.equalsIgnoreCase("use")) {
                 cjCardsUse(scanner , dataState , random);
+            }else if(input.equalsIgnoreCase("order-history")){
+                try {
+                    File myObj = new File("orderid.txt");
+                    Scanner myReader = new Scanner(myObj);
+                    while (myReader.hasNextLine()) {
+                        String data = myReader.nextLine();
+                        System.out.println(data);
+                    }
+                    myReader.close();
+                } catch (FileNotFoundException e) {
+                    System.out.println("An error occurred.");
+                    e.printStackTrace();
+                }
+            }else if(input.equalsIgnoreCase("terms-conditions")) {
+                try{
+                    File myObj = new File("privacypolicytc.txt");
+                    Scanner myReader = new Scanner(myObj);
+                    while (myReader.hasNextLine()){
+                        String data = myReader.nextLine();
+                        System.out.println(data);
+                    }
+                    myReader.close();
+                }catch (FileNotFoundException e){
+                    System.out.println("An error occurred.");
+
+                }
             }else{
                 System.out.println("There is no command like : "+input+" Plesae try again.");
             }
@@ -446,8 +474,8 @@ public class cjAccountOpenMain {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date date = new Date();
             myWriter.write("Ordered on : " + formatter.format(date) + " . ");
-            myWriter.write("Awarded coins : " + random);
-            myWriter.write("Your Order ID is " + randomOne + ",You Ordered : " + use);
+            myWriter.write("Awarded coins : " + random + " ");
+            myWriter.write("Your Order ID is " + randomOne + ",From : " + use);
             String newLine = System.getProperty("line.separator");
             myWriter.write(newLine);
             myWriter.close();
