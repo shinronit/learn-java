@@ -6,5 +6,6 @@ public class Custom159 {
         System.out.print("Enter your name : ");
         String input = scanner.next();
         System.out.println("Hello " + input);
+
     }
 }
