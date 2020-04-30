@@ -33,6 +33,7 @@ public class cjAccountOpenMain {
             System.out.println(pcheck);
             System.exit(0);
         }
+        for (;;){
         System.out.println("Enter new card name");
         String cardName = scanner.nextLine();
         if(cardName.equalsIgnoreCase("Coins")) {
@@ -102,12 +103,16 @@ public class cjAccountOpenMain {
             CJDataState.WriteObjectToFile(dataState);
             dataState = CJDataState.readObjectFromFile("cj.txt");
             System.out.println("Rating Rewards updated successfully");
-        }else if(cardName.equalsIgnoreCase("dailyrewards")){
+        }else if(cardName.equalsIgnoreCase("dailyrewards")) {
             int newValue = scanner.nextInt();
             dataState.setDailyRewards(newValue);
             CJDataState.WriteObjectToFile(dataState);
             dataState = CJDataState.readObjectFromFile("cj.txt");
             System.out.println("Daily Rewards updated successfully");
+        }else if(cardName.equalsIgnoreCase("quit")){
+            System.out.println("Exited with no erros");
+            System.exit(0);
+        }
         }
     }
 
@@ -218,9 +223,27 @@ public class cjAccountOpenMain {
             }else{
                 System.out.println("Not enough coins.");
             }
+        }else if(cardName.equalsIgnoreCase("RobotLevel") || cardName.equalsIgnoreCase("12")) {
+            System.out.println("Every upgrade costs 150 Coins.");
+            System.out.println("Enter level to increase :");
+            int quantity = scanner.nextInt();
+            int price = quantity * 150;
+            if(dataState.getTotalCoins() >= price) {
+                dataState.setTotalCoins(dataState.getTotalCoins()-price);
+                dataState.setRobotLevel(dataState.getRobotLevel()+quantity);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("Purchase successful.");
+                if(dataState.getRobotLevel()==1){
+                    System.out.println("Now your robot can peel vegetables like garlic cut onion ");
+                }
+            }else{
+                System.out.println("Not enough coins.");
+            }
         }
         System.out.println("Thank you for visiting.");
         System.out.println("Please take a screenshot of your purchase for future reference");
+        System.out.println("NOTE : Only do this if your purchase was successful else ignore.");
     }
 
     public static void cjCardsUse(Scanner scanner , CJDataState dataState , Random random){
@@ -397,7 +420,7 @@ public class cjAccountOpenMain {
         System.out.println("BASIC COMMANDS : BUY, UPDATE, DELETEACCOUNT, ORDER-HISTORY ,QUIT .");
         System.out.println("CARD COMMANDS : MAGGI, TEA, TEATOAST, ROOMCLEAN, WATER, MOVIE, APP, BOOK, SPIN ,RATINGREWARDS.");
         System.out.println("Please write word with no spaces.('Example : water or WATER.')");
-        System.out.println("Please rerun app.");
+        System.out.println("Rerun app.");
         System.exit(0);
     }
 
