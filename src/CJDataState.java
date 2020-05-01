@@ -1,20 +1,22 @@
-package ciAccountFiles;
-
 import java.io.*;
 
 public class CJDataState implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private static final String COINS_DESCRIPTION = "Coins can be earned by rewards or awarded by our MASTER_SERVER..";
     private static final String MAGGI_CARD_DESCRIPTION = "Requires 60 coins for 1 use";
     private static final String TEA_CARD = "Requires 30 coins for 1 use";
     private static final String TEA_TOAST_CARD = "Requires 100 coins for 1 use";
     private static final String ROOM_CLEAN_BOTTLE = "Requires 150 coins for 1 use";
-    private static final String WATER_CARD = "Requires 60 coins for 1 use";
+    private static final String WATER_CARD = "Requires 30 coins for 1 use";
     private static final String MOVIES_DOWNLOADS_LEFT = "Requires 200 coins for 1 use";
     private static final String BOOKS_DOWNLOADS_LEFT = "Requires 120 coins for 1 use";
     private static final String APPS_DOWNLOADS_LEFT = "Requires 120 coins for 1 use";
     private static final String SPINS_DESCRIPTION = "Get upto 1000 coins use spin command to access spins.";
+    private static final String RATING_DESCRIPTION = "You get 1 rating point for rating our services every time.";
+    private static final String DAILY_REWARDS = "Get rewards for daily login.";
+    private static final String ROBOT_LEVEL = "Upgrade robot for more features. ";
 
     int totalCoins;
     int maggiCard;
@@ -26,9 +28,36 @@ public class CJDataState implements Serializable {
     int bookDownload;
     int appDownload;
     int spins;
+    int ratingRewards;
+    int dailyRewards;
+    int robotLevel;
+
+    public int getRobotLevel(){
+        return robotLevel;
+    }
+
+    public void setRobotLevel(int robotLevel){
+        this.robotLevel = robotLevel;
+    }
+
+    public int getDailyRewards(){
+        return dailyRewards;
+    }
+
+    public void setDailyRewards(int dailyRewards){
+        this.dailyRewards = dailyRewards;
+    }
 
     public int getSpins(){
         return spins;
+    }
+
+    public int getRatingRewards(){
+        return ratingRewards;
+    }
+
+    public void setRatingRewards(int ratingRewards){
+        this.ratingRewards = ratingRewards;
     }
 
     public void setSpins(int spins){
@@ -145,17 +174,22 @@ public class CJDataState implements Serializable {
 
     public void display() {
         System.out.println("Your account information:");
-        System.out.format("%-32s%-30s%-40s\n", "Type of Card: ", "Quantity", "Shop");
-        System.out.format("=========================================================================================\n");
-        System.out.format("%-32s%-30d%-40s\n", "Total coins: ", this.totalCoins,"");
-        System.out.format("%-32s%-30d%-40s\n", "Total Maggi Cards: ", this.maggiCard, MAGGI_CARD_DESCRIPTION);
-        System.out.format("%-32s%-30d%-40s\n", "Tea Card: ", this.teaCard, TEA_CARD);
-        System.out.format("%-32s%-30d%-40s\n", "TeaToast Card: ", this.teaToastCard , TEA_TOAST_CARD);
-        System.out.format("%-32s%-30d%-40s\n", "RoomBottleCleanCard: ", this.roomCleanBottle,ROOM_CLEAN_BOTTLE);
-        System.out.format("%-32s%-30d%-40s\n", "Water Card: ", this.waterCard,WATER_CARD);
-        System.out.format("%-32s%-30d%-40s\n", "MoviesCard: ", this.movieDownload,MOVIES_DOWNLOADS_LEFT);
-        System.out.format("%-32s%-30d%-40s\n", "Games/AppsCards: ", this.appDownload,APPS_DOWNLOADS_LEFT);
-        System.out.format("%-32s%-30d%-40s\n", "Books Card: ", this.bookDownload,BOOKS_DOWNLOADS_LEFT);
-        System.out.format("%-32s%-30d%-40s\n", "Spins Left: ", this.spins,SPINS_DESCRIPTION);
+        System.out.format("%-32s%-30s%-40s\n", "Type of Card: ", "Quantity", "Shop (Use coupons on the description tab.)");
+        System.out.format("================================================================================================================\n");
+        System.out.format("%-32s%-30d%-40s\n", "Total coins: ", this.totalCoins,COINS_DESCRIPTION);
+        System.out.format("%-32s%-30d%-40s\n", "1) Total Maggi Cards: ", this.maggiCard, MAGGI_CARD_DESCRIPTION);
+        System.out.format("%-32s%-30d%-40s\n", "2) Tea Card: ", this.teaCard, TEA_CARD);
+        System.out.format("%-32s%-30d%-40s\n", "3) TeaToast Card: ", this.teaToastCard , TEA_TOAST_CARD);
+        System.out.format("%-32s%-30d%-40s\n", "4) RoomBottleCleanCard: ", this.roomCleanBottle,ROOM_CLEAN_BOTTLE);
+        System.out.format("%-32s%-30d%-40s\n", "5) Water Card: ", this.waterCard,WATER_CARD);
+        System.out.format("%-32s%-30d%-40s\n", "6) MoviesCard: ", this.movieDownload,MOVIES_DOWNLOADS_LEFT);
+        System.out.format("%-32s%-30d%-40s\n", "7) Games/AppsCards: ", this.appDownload,APPS_DOWNLOADS_LEFT);
+        System.out.format("%-32s%-30d%-40s\n", "8) Books Card: ", this.bookDownload,BOOKS_DOWNLOADS_LEFT);
+        System.out.format("%-32s%-30d%-40s\n", "9) Spins Left: ", this.spins,SPINS_DESCRIPTION);
+        System.out.format("%-32s%-30d%-40s\n", "10) RatingRewards : ", this.ratingRewards,RATING_DESCRIPTION);
+        System.out.format("%-32s%-30d%-40s\n", "11) DailyRewards : ", this.dailyRewards,DAILY_REWARDS);
+        System.out.format("%-32s%-30d%-40s\n", "12) RobotLevel :  : ", this.robotLevel,ROBOT_LEVEL);
+        System.out.println();
+        System.out.println("Type commands to get command list. Use mouse scroll wheel to go up and down.");
     }
 }
