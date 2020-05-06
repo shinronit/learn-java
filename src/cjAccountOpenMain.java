@@ -6,9 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Random;
 
 public class cjAccountOpenMain {
-
     public void openCjAccount(){
         Scanner scanner = new Scanner(System.in);
         getMd5 onegetMd5 = new getMd5();
@@ -19,10 +19,9 @@ public class cjAccountOpenMain {
         Random random = new Random();
         int randomOne = 10000+random.nextInt(9999999);
 
-        userInput(scanner,onegetMd5,dataState,random);
+        userInput(scanner , onegetMd5 , dataState , random);
 
     }
-
     public static void updateCJCardAdmin(Scanner scanner , getMd5 onegetMd5 , CJDataState dataState){
         System.out.println("Enter Admin Password to Modify Data");
         String adminPassword = scanner.nextLine();
@@ -33,89 +32,88 @@ public class cjAccountOpenMain {
             System.out.println(pcheck);
             System.exit(0);
         }
-        for (;;){
-        System.out.println("Enter new card name");
-        String cardName = scanner.nextLine();
-        if(cardName.equalsIgnoreCase("Coins")) {
-            int newValue = scanner.nextInt();
-            dataState.setTotalCoins(newValue);
-            CJDataState.WriteObjectToFile(dataState);
-            dataState = CJDataState.readObjectFromFile("cj.txt");
-            System.out.println("Total Coin updated successfully");
-            System.out.println("Coins added");
-        }else if(cardName.equalsIgnoreCase("Maggi")) {
-            int newValue = scanner.nextInt();
-            dataState.setMaggiCard(newValue);
-            CJDataState.WriteObjectToFile(dataState);
-            dataState = CJDataState.readObjectFromFile("cj.txt");
-            System.out.println("Maggi Cards updated successfully");
-        }else if(cardName.equalsIgnoreCase("Tea")) {
-            int newValue = scanner.nextInt();
-            dataState.setTeaCard(newValue);
-            CJDataState.WriteObjectToFile(dataState);
-            dataState = CJDataState.readObjectFromFile("cj.txt");
-            System.out.println("Tea cards updated successfully");
-        }else if(cardName.equalsIgnoreCase("TeaToast")) {
-            int newValue = scanner.nextInt();
-            dataState.setTeaToastCard(newValue);
-            CJDataState.WriteObjectToFile(dataState);
-            dataState = CJDataState.readObjectFromFile("cj.txt");
-            System.out.println("Tea Toast Card updated successfully");
-        }else if(cardName.equalsIgnoreCase("RoomClean")) {
-            int newValue = scanner.nextInt();
-            dataState.setRoomCleanBottle(newValue);
-            CJDataState.WriteObjectToFile(dataState);
-            dataState = CJDataState.readObjectFromFile("cj.txt");
-            System.out.println("Room clean bottles updated successfully");
-        }else if(cardName.equalsIgnoreCase("Water")) {
-            int newValue = scanner.nextInt();
-            dataState.setWaterCard(newValue);
-            CJDataState.WriteObjectToFile(dataState);
-            dataState = CJDataState.readObjectFromFile("cj.txt");
-            System.out.println("Water Card updated successfully");
-        }else if(cardName.equalsIgnoreCase("Movie")) {
-            int newValue = scanner.nextInt();
-            dataState.setMovieDownload(newValue);
-            CJDataState.WriteObjectToFile(dataState);
-            dataState = CJDataState.readObjectFromFile("cj.txt");
-            System.out.println("Movie Card updated successfully");
-        }else if(cardName.equalsIgnoreCase("App")) {
-            int newValue = scanner.nextInt();
-            dataState.setAppDownload(newValue);
-            CJDataState.WriteObjectToFile(dataState);
-            dataState = CJDataState.readObjectFromFile("cj.txt");
-            System.out.println("App Cards updated successfully");
-        }else if(cardName.equalsIgnoreCase("Book")) {
-            int newValue = scanner.nextInt();
-            dataState.setBookDownload(newValue);
-            CJDataState.WriteObjectToFile(dataState);
-            dataState = CJDataState.readObjectFromFile("cj.txt");
-            System.out.println("Book Cards updated successfully");
-        }else if(cardName.equalsIgnoreCase("spin")){
-            int newValue = scanner.nextInt();
-            dataState.setSpins(newValue);
-            CJDataState.WriteObjectToFile(dataState);
-            dataState = CJDataState.readObjectFromFile("cj.txt");
-            System.out.println("Spins updated successfully");
-        }else if(cardName.equalsIgnoreCase("ratingrewards")){
-            int newValue = scanner.nextInt();
-            dataState.setRatingRewards(newValue);
-            CJDataState.WriteObjectToFile(dataState);
-            dataState = CJDataState.readObjectFromFile("cj.txt");
-            System.out.println("Rating Rewards updated successfully");
-        }else if(cardName.equalsIgnoreCase("dailyrewards")) {
-            int newValue = scanner.nextInt();
-            dataState.setDailyRewards(newValue);
-            CJDataState.WriteObjectToFile(dataState);
-            dataState = CJDataState.readObjectFromFile("cj.txt");
-            System.out.println("Daily Rewards updated successfully");
-        }else if(cardName.equalsIgnoreCase("quit")){
-            System.out.println("Exited with no erros");
-            System.exit(0);
-        }
+        for (;;) {
+            System.out.println("Enter new card name");
+            String cardName = scanner.nextLine();
+            if(cardName.equalsIgnoreCase("Coins")) {
+                int newValue = scanner.nextInt();
+                dataState.setTotalCoins(newValue);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("Total Coin updated successfully");
+                System.out.println("Coins added");
+            }else if(cardName.equalsIgnoreCase("Maggi")) {
+                int newValue = scanner.nextInt();
+                dataState.setMaggiCard(newValue);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("Maggi Cards updated successfully");
+            }else if(cardName.equalsIgnoreCase("Tea")) {
+                int newValue = scanner.nextInt();
+                dataState.setTeaCard(newValue);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("Tea cards updated successfully");
+            }else if(cardName.equalsIgnoreCase("TeaToast")) {
+                int newValue = scanner.nextInt();
+                dataState.setTeaToastCard(newValue);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("Tea Toast Card updated successfully");
+            }else if(cardName.equalsIgnoreCase("RoomClean")) {
+                int newValue = scanner.nextInt();
+                dataState.setRoomCleanBottle(newValue);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("Room clean bottles updated successfully");
+            }else if(cardName.equalsIgnoreCase("Water")) {
+                int newValue = scanner.nextInt();
+                dataState.setWaterCard(newValue);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("Water Card updated successfully");
+            }else if(cardName.equalsIgnoreCase("Movie")) {
+                int newValue = scanner.nextInt();
+                dataState.setMovieDownload(newValue);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("Movie Card updated successfully");
+            }else if(cardName.equalsIgnoreCase("App")) {
+                int newValue = scanner.nextInt();
+                dataState.setAppDownload(newValue);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("App Cards updated successfully");
+            }else if(cardName.equalsIgnoreCase("Book")) {
+                int newValue = scanner.nextInt();
+                dataState.setBookDownload(newValue);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("Book Cards updated successfully");
+            }else if(cardName.equalsIgnoreCase("spin")) {
+                int newValue = scanner.nextInt();
+                dataState.setSpins(newValue);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("Spins updated successfully");
+            }else if(cardName.equalsIgnoreCase("ratingrewards")) {
+                int newValue = scanner.nextInt();
+                dataState.setRatingRewards(newValue);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("Rating Rewards updated successfully");
+            }else if(cardName.equalsIgnoreCase("dailyrewards")) {
+                int newValue = scanner.nextInt();
+                dataState.setDailyRewards(newValue);
+                CJDataState.WriteObjectToFile(dataState);
+                dataState = CJDataState.readObjectFromFile("cj.txt");
+                System.out.println("Daily Rewards updated successfully");
+            }else if(cardName.equalsIgnoreCase("quit")) {
+                System.out.println("Exited with no erros");
+                System.exit(0);
+            }
         }
     }
-
     public static void cjCardsBuy(Scanner scanner , CJDataState dataState){
         System.out.println("Enter card name or card number maggi card is number 1 and books is number 8");
         String cardName = scanner.nextLine();
@@ -234,7 +232,7 @@ public class cjAccountOpenMain {
                 CJDataState.WriteObjectToFile(dataState);
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Purchase successful.");
-                if(dataState.getRobotLevel()==1){
+                if(dataState.getRobotLevel() == 1) {
                     System.out.println("Now your robot can peel vegetables like garlic cut onion ");
                 }
             }else{
@@ -245,7 +243,6 @@ public class cjAccountOpenMain {
         System.out.println("Please take a screenshot of your purchase for future reference");
         System.out.println("NOTE : Only do this if your purchase was successful else ignore.");
     }
-
     public static void cjCardsUse(Scanner scanner , CJDataState dataState , Random random){
         int randomOne = 10000+random.nextInt(9999999);
         System.out.println("Which Card do u want to use : MAGGI, TEA, TEATOAST, ROOMCLEAN, WATER, MOVIE, APP, BOOK, SPIN ,RATINGREWARDS. Or use card NUMBER.");
@@ -257,7 +254,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
-                order(scanner,randomOne,use);
+                order(scanner , randomOne , use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -269,7 +266,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
-                order(scanner,randomOne,use);
+                order(scanner , randomOne , use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -281,7 +278,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
-                order(scanner,randomOne,use);
+                order(scanner , randomOne , use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -293,7 +290,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
-                order(scanner,randomOne,use);
+                order(scanner , randomOne , use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -305,7 +302,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
-                order(scanner,randomOne,use);
+                order(scanner , randomOne , use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -317,7 +314,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
-                order(scanner,randomOne,use);
+                order(scanner , randomOne , use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -329,7 +326,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
-                order(scanner,randomOne,use);
+                order(scanner , randomOne , use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -341,7 +338,7 @@ public class cjAccountOpenMain {
                 dataState = CJDataState.readObjectFromFile("cj.txt");
                 System.out.println("Use successful. Order ID : "+randomOne);
                 System.out.println("Please note down the order id for a future reference");
-                order(scanner,randomOne,use);
+                order(scanner , randomOne , use);
             }else{
                 System.out.println("Not enough cards.");
                 System.exit(0);
@@ -351,19 +348,19 @@ public class cjAccountOpenMain {
             int dailySpins = random.nextInt(80);
             String claim = scanner.nextLine();
             if(claim.equalsIgnoreCase("")) {
-                if(dataState.getSpins()>0) {
+                if(dataState.getSpins() > 0) {
                     dataState.setTotalCoins(dataState.getTotalCoins()+dailySpins);
                     System.out.println("Rewarded coins : "+dailySpins);
                     dataState.setSpins(dataState.getSpins()-1);
                     CJDataState.WriteObjectToFile(dataState);
                     dataState = CJDataState.readObjectFromFile("cj.txt");
-                    coinsUpdateNoticeAndOtherItems(scanner,randomOne,dailySpins,use);
+                    coinsUpdateNoticeAndOtherItems(scanner , randomOne , dailySpins , use);
                     System.exit(0);
-                }else {
+                }else{
                     System.out.println("Not enough spins");
                     System.exit(0);
                 }
-            }else {
+            }else{
                 System.out.println("This command is not accepted .");
                 System.exit(0);
             }
@@ -372,50 +369,47 @@ public class cjAccountOpenMain {
             int ratingRewards = random.nextInt(10);
             String claim = scanner.nextLine();
             if(claim.equalsIgnoreCase("")) {
-                if(dataState.getRatingRewards()>0) {
+                if(dataState.getRatingRewards() > 0) {
                     dataState.setTotalCoins(dataState.getTotalCoins()+ratingRewards);
                     System.out.println("Rewarded coins : "+ratingRewards);
                     dataState.setRatingRewards(dataState.getRatingRewards()-1);
                     CJDataState.WriteObjectToFile(dataState);
                     dataState = CJDataState.readObjectFromFile("cj.txt");
-                    coinsUpdateNoticeAndOtherItems(scanner,randomOne,ratingRewards,use);
+                    coinsUpdateNoticeAndOtherItems(scanner , randomOne , ratingRewards , use);
                     System.exit(0);
-                }else {
+                }else{
                     System.out.println("Not enough rating points");
                     System.exit(0);
                 }
-            }else {
+            }else{
                 System.out.println("This command is not accepted .");
                 System.exit(0);
             }
-        }  else if(use.equalsIgnoreCase("dailyRewards") || use.equalsIgnoreCase("11")) {
+        }else if(use.equalsIgnoreCase("dailyRewards") || use.equalsIgnoreCase("11")) {
             System.out.println("Welcome to daily rewards press enter to claim your reward.");
             int dailyRewards = random.nextInt(10);
             String claim = scanner.nextLine();
             if(claim.equalsIgnoreCase("")) {
-                if(dataState.getDailyRewards()>0) {
+                if(dataState.getDailyRewards() > 0) {
                     dataState.setTotalCoins(dataState.getTotalCoins()+dailyRewards);
                     System.out.println("Rewarded coins : "+dailyRewards);
                     dataState.setDailyRewards(dataState.getDailyRewards()-1);
                     CJDataState.WriteObjectToFile(dataState);
                     dataState = CJDataState.readObjectFromFile("cj.txt");
-                    coinsUpdateNoticeAndOtherItems(scanner,randomOne,dailyRewards,use);
+                    coinsUpdateNoticeAndOtherItems(scanner , randomOne , dailyRewards , use);
                     System.exit(0);
-                }else {
+                }else{
                     System.out.println("Not enough dailyRewards points");
                     System.exit(0);
                 }
-            }else {
+            }else{
                 System.out.println("This command is not accepted .");
                 System.exit(0);
             }
-        }
-
-        else{
+        }else{
             System.exit(0);
         }
     }
-
     public static void commands(){
         System.out.println("BASIC COMMANDS : BUY, UPDATE, DELETEACCOUNT, ORDER-HISTORY ,QUIT .");
         System.out.println("CARD COMMANDS : MAGGI, TEA, TEATOAST, ROOMCLEAN, WATER, MOVIE, APP, BOOK, SPIN ,RATINGREWARDS.");
@@ -423,89 +417,130 @@ public class cjAccountOpenMain {
         System.out.println("Rerun app.");
         System.exit(0);
     }
-
-    public static void userInput(Scanner scanner,getMd5 onegetMd5,CJDataState dataState,Random random){
-            String input = scanner.nextLine();
-            if(input.equalsIgnoreCase("update")) {
-                updateCJCardAdmin(scanner , onegetMd5 , dataState);
-            }else if(input.equalsIgnoreCase("quit")) {
-                System.out.println("Thank you for visiting.");
+    public static void gameZone(Scanner scanner , Random random , CJDataState dataState){
+        System.out.println("Welcome to game zone");
+        System.out.println("Choose games to play : Match the Number Wins , More games added soon.");
+        System.out.println();
+        System.out.println("Playing cost is 100 coins. Want to Play? Y/N" + "Choose N if you have cards.");
+        String input = scanner.next();
+        if(input.equalsIgnoreCase("y")) {
+            dataState.setTotalCoins(dataState.getTotalCoins()-100);
+            CJDataState.WriteObjectToFile(dataState);
+            matchTheNumberWins(scanner , random , dataState);
+        }else if(input.equalsIgnoreCase("N")) {
+            if(dataState.getGamesLeft()>0){
+                matchTheNumberWins(scanner , random , dataState);
+            }else {
+                System.out.println("Not enough cards .");
                 System.exit(0);
-            }else if(input.equalsIgnoreCase("deleteaccount")) {
-                System.out.println("Please contact admins");
-            }else if(input.equalsIgnoreCase("buy")) {
-                cjCardsBuy(scanner , dataState);
-            }else if(input.equalsIgnoreCase("commands")) {
-                commands();
-            }else if(input.equalsIgnoreCase("use")) {
-                cjCardsUse(scanner , dataState , random);
-            }else if(input.equalsIgnoreCase("order-history")){
-                try {
-                    File myObj = new File("orderid.txt");
-                    Scanner myReader = new Scanner(myObj);
-                    while (myReader.hasNextLine()) {
-                        String data = myReader.nextLine();
-                        System.out.println(data);
-                    }
-                    myReader.close();
-                } catch (FileNotFoundException e) {
-                    System.out.println("An error occurred.");
-                    e.printStackTrace();
-                }
-            }else if(input.equalsIgnoreCase("terms-conditions")) {
-                try{
-                    File myObj = new File("privacypolicytc.txt");
-                    Scanner myReader = new Scanner(myObj);
-                    while (myReader.hasNextLine()){
-                        String data = myReader.nextLine();
-                        System.out.println(data);
-                    }
-                    myReader.close();
-                }catch (FileNotFoundException e){
-                    System.out.println("An error occurred.");
-
-                }
-            }else{
-                System.out.println("There is no command like : "+input+" Plesae try again.");
             }
+        }else{
+            System.out.println("Error with that");
         }
-        
-    public static void order(Scanner scanner , int randomOne,String use){
-        try {
-            FileWriter myWriter = new FileWriter("orderid.txt",true );
+
+    }
+    public static void userInput(Scanner scanner , getMd5 onegetMd5 , CJDataState dataState , Random random){
+        String input = scanner.nextLine();
+        if(input.equalsIgnoreCase("update")) {
+            updateCJCardAdmin(scanner , onegetMd5 , dataState);
+        }else if(input.equalsIgnoreCase("quit")) {
+            System.out.println("Thank you for visiting.");
+            System.exit(0);
+        }else if(input.equalsIgnoreCase("deleteaccount")) {
+            System.out.println("Please contact admins");
+        }else if(input.equalsIgnoreCase("buy")) {
+            cjCardsBuy(scanner , dataState);
+        }else if(input.equalsIgnoreCase("commands")) {
+            commands();
+        }else if(input.equalsIgnoreCase("use")) {
+            cjCardsUse(scanner , dataState , random);
+        }else if(input.equalsIgnoreCase("order-history")) {
+            try{
+                File myObj = new File("orderid.txt");
+                Scanner myReader = new Scanner(myObj);
+                while (myReader.hasNextLine()){
+                    String data = myReader.nextLine();
+                    System.out.println(data);
+                }
+                myReader.close();
+            }catch ( FileNotFoundException e ){
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }else if(input.equalsIgnoreCase("terms-conditions")) {
+            try{
+                File myObj = new File("privacypolicytc.txt");
+                Scanner myReader = new Scanner(myObj);
+                while (myReader.hasNextLine()){
+                    String data = myReader.nextLine();
+                    System.out.println(data);
+                }
+                myReader.close();
+            }catch ( FileNotFoundException e ){
+                System.out.println("An error occurred.");
+
+            }
+        }else if(input.equalsIgnoreCase("Games")) {
+            gameZone(scanner , random , dataState);
+        }else{
+            System.out.println("There is no command like : "+input+" Plesae try again.");
+        }
+    }
+    public static void order(Scanner scanner , int randomOne , String use){
+        try{
+            FileWriter myWriter = new FileWriter("orderid.txt" , true);
             System.out.println("Describe it in one line by giving spaces.");
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date date = new Date();
-            myWriter.write("Ordered on : " + formatter.format(date) + " . ");
+            myWriter.write("Ordered on : "+formatter.format(date)+" . ");
             System.out.println("Please describe your full order.Like if you order toast describe number of toasts and tea.");
             System.out.println("Or if u order some room service please instruct what to not do. If there is no please leave this line.");
             String order = scanner.nextLine();
-            myWriter.write("Description : " + order);
-            myWriter.write("Your Order ID is " + randomOne + ",You Ordered : " + use);
+            myWriter.write("Description : "+order);
+            myWriter.write("Your Order ID is "+randomOne+",You Ordered : "+use);
             String newLine = System.getProperty("line.separator");
             myWriter.write(newLine);
             myWriter.close();
 
-        } catch (IOException e) {
+        }catch ( IOException e ){
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
     }
-    public static void coinsUpdateNoticeAndOtherItems(Scanner scanner , int randomOne,int random,String use){
-        try {
-            FileWriter myWriter = new FileWriter("orderid.txt",true );
+    public static void coinsUpdateNoticeAndOtherItems(Scanner scanner , int randomOne , int random , String use){
+        try{
+            FileWriter myWriter = new FileWriter("orderid.txt" , true);
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date date = new Date();
-            myWriter.write("Ordered on : " + formatter.format(date) + " . ");
-            myWriter.write("Awarded coins : " + random + " ");
-            myWriter.write("Your Order ID is " + randomOne + ",From : " + use);
+            myWriter.write("Ordered on : "+formatter.format(date)+" . ");
+            myWriter.write("Awarded coins : "+random+" ");
+            myWriter.write("Your Order ID is "+randomOne+",From : "+use);
             String newLine = System.getProperty("line.separator");
             myWriter.write(newLine);
             myWriter.close();
 
-        } catch (IOException e) {
+        }catch ( IOException e ){
             System.out.println("An error occurred.");
             e.printStackTrace();
+        }
+    }
+    public static void matchTheNumberWins(Scanner scanner , Random random , CJDataState dataState){
+        int i = random.nextInt(10);
+        int awardedCoins = 0;
+        System.out.println("If your answer is correct you can get upto 500 coins.");
+        System.out.println("Choose your number . (1-9)");
+        System.out.print("Your Choice : ");
+        String input = scanner.next();
+        int inputcheck = Integer.parseInt(input);
+        if(inputcheck == i) {
+            awardedCoins += 200;
+            dataState.setTotalCoins(dataState.getTotalCoins()+awardedCoins);
+            CJDataState.WriteObjectToFile(dataState);
+            dataState = CJDataState.readObjectFromFile("cj.txt");
+            System.out.println("Coins Awarded.");
+            System.out.println("100 coins were cut for playing so you received 100 more.");
+        }else{
+            System.out.println("You lost the number was : "+i);
         }
     }
 }
