@@ -9,9 +9,10 @@ public class ShinAccountsManager {
     public static void main(String[] args) throws NoSuchAlgorithmException{
         Scanner scanner = new Scanner(System.in);
         cjShinLoginPage cjShinLoginPage = new cjShinLoginPage();
-        System.out.println("SHIN-CLAN USER ACCOUNT TERMINAL (V1.7.1)");
-        System.out.println("Login Signup , do you have an account ? Y/N");
-        String accountQuestion = scanner.nextLine();
+        System.out.println("SHIN-CLAN USER ACCOUNT TERMINAL (V1.7.3)");
+        System.out.println("Login/Sign-up , Do you have an account ? Y/N");
+        System.out.print("Your Input : ");
+        String accountQuestion = scanner.next();
         if(accountQuestion.equalsIgnoreCase("y")){
         }else if(accountQuestion.equalsIgnoreCase("n")){
             System.out.println("Hi , currently we don't allow people to create there account on their own so if you want to create a account please contact the terminal admin.");
@@ -28,9 +29,8 @@ public class ShinAccountsManager {
             cjShinLoginPage.loginpage();
         }else {
             System.out.println("Id didn't matched our records plesae try again with a correct id ");
+            System.out.println("Try resigning or contact admin.");
             System.exit(0);
         }
     }
-
-
 }
