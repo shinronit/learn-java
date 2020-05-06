@@ -17,7 +17,7 @@ public class CJDataState implements Serializable {
     private static final String RATING_DESCRIPTION = "You get 1 rating point for rating our services every time.";
     private static final String DAILY_REWARDS = "Get rewards for daily login.";
     private static final String ROBOT_LEVEL = "Upgrade robot for more features. ";
-
+    private static final String GAMES_LEFT = "Use for playing games. ";
     int totalCoins;
     int maggiCard;
     int teaCard;
@@ -31,6 +31,15 @@ public class CJDataState implements Serializable {
     int ratingRewards;
     int dailyRewards;
     int robotLevel;
+    int gamesLeft;
+
+    public int getGamesLeft(){
+        return gamesLeft;
+    }
+
+    public void setGamesLeft(int gamesLeft){
+        this.gamesLeft = gamesLeft;
+    }
 
     public int getRobotLevel(){
         return robotLevel;
@@ -173,7 +182,8 @@ public class CJDataState implements Serializable {
     }
 
     public void display() {
-        System.out.println("Your account information:");
+        System.out.println("Your account information:" + " ACCOUNT TYPE = BRONZE (Subscribe now to unlock premium access,)");
+        System.out.println();
         System.out.format("%-32s%-30s%-40s\n", "Type of Card: ", "Quantity", "Shop (Use coupons on the description tab.)");
         System.out.format("================================================================================================================\n");
         System.out.format("%-32s%-30d%-40s\n", "Total coins: ", this.totalCoins,COINS_DESCRIPTION);
@@ -188,7 +198,8 @@ public class CJDataState implements Serializable {
         System.out.format("%-32s%-30d%-40s\n", "9) Spins Left: ", this.spins,SPINS_DESCRIPTION);
         System.out.format("%-32s%-30d%-40s\n", "10) RatingRewards : ", this.ratingRewards,RATING_DESCRIPTION);
         System.out.format("%-32s%-30d%-40s\n", "11) DailyRewards : ", this.dailyRewards,DAILY_REWARDS);
-        System.out.format("%-32s%-30d%-40s\n", "12) RobotLevel :  : ", this.robotLevel,ROBOT_LEVEL);
+        System.out.format("%-32s%-30d%-40s\n", "12) RobotLevel :   ", this.robotLevel,ROBOT_LEVEL);
+        System.out.format("%-32s%-30d%-40s\n", "13) GamesLeft :   ", this.gamesLeft,GAMES_LEFT);
         System.out.println();
         System.out.println("Type commands to get command list. Use mouse scroll wheel to go up and down.");
     }
