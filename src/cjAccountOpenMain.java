@@ -1,3 +1,5 @@
+package ciAccountFiles;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -12,7 +14,6 @@ public class cjAccountOpenMain {
     public void openCjAccount(){
         Scanner scanner = new Scanner(System.in);
         getMd5 onegetMd5 = new getMd5();
-        modifyCJData modifyCJData = new modifyCJData();
         CJDataState dataState = CJDataState.readObjectFromFile("cj.txt");
         dataState.display();
 

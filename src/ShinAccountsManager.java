@@ -1,7 +1,9 @@
-//java files getMd5.java
+package ciAccountFiles;//java files ciAccountFiles.getMd5.java
 //cjAccountRead.java
 //modifyCJData
 //shincochan@@
+import ciAccountFiles.cjShinLoginPage;
+
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
