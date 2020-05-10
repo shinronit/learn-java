@@ -1,8 +1,11 @@
-package ciAccountFiles;//java files ciAccountFiles.getMd5.java
-//cjAccountRead.java
-//modifyCJData
+//java files admin words
+//getMd5.java
+//ShinAccountsManager.java
+//cjAccountOpenMain.java
+//cjShinLoginPage.java
+//CJDataState.java
 //shincochan@@
-import ciAccountFiles.cjShinLoginPage;
+//END
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
@@ -11,13 +14,13 @@ public class ShinAccountsManager {
     public static void main(String[] args) throws NoSuchAlgorithmException{
         Scanner scanner = new Scanner(System.in);
         cjShinLoginPage cjShinLoginPage = new cjShinLoginPage();
-        System.out.println("SHIN-CLAN USER ACCOUNT TERMINAL (V1.7.3)");
+        System.out.println("SHIN-CLAN USER ACCOUNT TERMINAL (V1.7.9)");
         System.out.println("Login/Sign-up , Do you have an account ? Y/N");
         System.out.print("Your Input : ");
         String accountQuestion = scanner.next();
         if(accountQuestion.equalsIgnoreCase("y")){
         }else if(accountQuestion.equalsIgnoreCase("n")){
-            System.out.println("Hi , currently we don't allow people to create there account on their own so if you want to create a account please contact the terminal admin.");
+            System.out.println("please contact the terminal admin.");
             System.exit(0);
         }else {
             System.out.println("Your input : '" + accountQuestion + "' does not seems to match any command.");
