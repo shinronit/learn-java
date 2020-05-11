@@ -32,6 +32,7 @@ public class Custom178 {
             }else {
                 System.out.println("Could not find player.");
             }
+            System.out.println("Console END*");
         }
     }
 }
