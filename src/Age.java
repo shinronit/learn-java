@@ -9,6 +9,7 @@ public class Age {
         nabObject.setName(ans);
         nabObject.saying();
         System.out.println(ans);
+        System.out.println();
         System.out.println("Thanks for using me.");
     }
 }
