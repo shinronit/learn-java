@@ -7,5 +7,6 @@ public class apples {
         System.out.print(tuna);
         System.out.println("movies");
         System.out.print("apples");
+        System.out.println("old");
     }
 }
