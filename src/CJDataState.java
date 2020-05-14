@@ -17,7 +17,7 @@ public class CJDataState implements Serializable {
     private static final String RATING_DESCRIPTION = "You get 1 rating point for rating our services every time.";
     private static final String DAILY_REWARDS = "Get rewards for daily login.";
     private static final String ROBOT_LEVEL = "Upgrade robot for more features. ";
-    private static final String GAMES_LEFT = "Use for playing games. ";
+    private static final String GAMES_LEFT = "Use for playing games.. and more ";
     int totalCoins;
     int maggiCard;
     int teaCard;
