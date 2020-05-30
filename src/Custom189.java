@@ -28,6 +28,7 @@ public class Custom189 {
             System.out.println("Enter your age in number.");
         }
         System.out.println("Enter Month ");
+        System.out.println();
         String dob;
         dob = scanner.nextLine();
         if(dob.equalsIgnoreCase("")){
