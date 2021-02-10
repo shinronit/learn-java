@@ -24,7 +24,7 @@ public class randomModelNumberGenerator {
     public static void GetRandomPassword(int Digits) {
         String code = "";
         for ( int b = 0;b < Digits;b++ ) {
-            int random = r.nextInt(35);
+            int random = r.nextInt(keys.length);
             code += keys[random];
         }
         System.out.print("Model Number Generated : " + code);
